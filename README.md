@@ -8,7 +8,11 @@ This project is a demo on how to create Flutter Plugins https://www.youtube.com/
 
 Learn more at [plug-in package](https://flutter.dev/developing-packages/).
 
-Change MacOS wallpapers.
+## Platforms
+- MacOS
+
+## Demo
+
 [Demo](https://user-images.githubusercontent.com/1899538/226126443-46413ea5-1498-4910-bcdc-9c2eeea6024e.mov)
 
 ## Notes
