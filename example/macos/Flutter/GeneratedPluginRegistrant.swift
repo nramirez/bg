@@ -6,11 +6,7 @@ import FlutterMacOS
 import Foundation
 
 import bg
-import path_provider_foundation
-import sqflite
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   BgPlugin.register(with: registry.registrar(forPlugin: "BgPlugin"))
-  PathProviderPlugin.register(with: registry.registrar(forPlugin: "PathProviderPlugin"))
-  SqflitePlugin.register(with: registry.registrar(forPlugin: "SqflitePlugin"))
 }
