@@ -11,10 +11,9 @@ class MethodChannelBg extends BgPlatform {
 
   @override
   Future<String?> changeWallpaper({required String url}) async {
-    final version = await methodChannel
+    return await methodChannel
         .invokeMethod<String>('changeWallpaper', <String, dynamic>{
       'url': url,
     });
-    return version;
   }
 }

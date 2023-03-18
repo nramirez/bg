@@ -18,11 +18,12 @@ class _MyAppState extends State<MyApp> {
 
   final controller = TextEditingController(
       text:
-          'https://live.staticflickr.com/65535/52438139047_6270dfdaab_o_d.jpg');
+          'https://cdn.midjourney.com/5dda2e78-6759-4016-bfda-f06de574ecc9/0_0.png');
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark(useMaterial3: true),
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Plugin example app'),
@@ -30,22 +31,31 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Column(
             children: [
-              const Text('Change wallpaper:'),
-              TextFormField(
-                controller: controller,
-                decoration: const InputDecoration(
-                  hintText: 'Image URL',
+              const Text('Page URL'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: controller,
+                  decoration: const InputDecoration(
+                    hintText: 'Image URL',
+                  ),
                 ),
               ),
-              ElevatedButton(
-                onPressed: () async {
-                  final result =
-                      await _bgPlugin.changeWallpaper(url: controller.text);
-                  print(result);
-                },
-                child: const Text('Change wallpaper'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  onPressed: () async {
+                    final result =
+                        await _bgPlugin.changeWallpaper(url: controller.text);
+                    print(result);
+                  },
+                  child: const Text('Change wallpaper'),
+                ),
               ),
-              CachedNetworkImage(imageUrl: controller.text),
+              // wrap with scrollable widget to avoid overflow
+              SingleChildScrollView(
+                child: CachedNetworkImage(imageUrl: controller.text),
+              ),
             ],
           ),
         ),

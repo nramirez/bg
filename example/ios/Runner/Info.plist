@@ -47,5 +47,9 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Save wallpaper images to your photo library</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Add wallpaper images to your photo library</string>
 </dict>
 </plist>
