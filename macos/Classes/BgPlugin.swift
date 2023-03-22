@@ -37,18 +37,14 @@ public class BgPlugin: NSObject, FlutterPlugin {
 		case center
 	}
 
-   // Fill Screen,  Stretch to Fill Screen, Center, Fit to Screen,
-    // Center and Fit to Screen receive colors
+  // Fill Screen,  Stretch to Fill Screen, Center, Fit to Screen,
+  // Center and Fit to Screen receive colors
   public func getOptions(_ call: FlutterMethodCall) -> [NSWorkspace.DesktopImageOptionKey: Any]{
     let opts: [String: Any] = (call.arguments as? [String: Any]) ?? [:]
     var options: [NSWorkspace.DesktopImageOptionKey: Any] = [:]
 
     let scaleString: String = opts["scale"] as! String
-    if scaleString == "auto" {
-       NSLog(scaleString)
-       options[.imageScaling] = NSImageScaling.scaleProportionallyUpOrDown
-    } else
- 
+    
     if scaleString == "fill" {
        options[.imageScaling] = NSNumber(value: NSImageScaling.scaleAxesIndependently.rawValue)
     } else if scaleString == "fit" {

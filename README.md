@@ -11,9 +11,10 @@ Learn more at [plug-in package](https://flutter.dev/developing-packages/).
 ## Platforms
 - MacOS
 
-## Demo
+## Example
 
-[Demo](https://user-images.githubusercontent.com/1899538/226126443-46413ea5-1498-4910-bcdc-9c2eeea6024e.mov)
+![Demo](https://user-images.githubusercontent.com/1899538/226887038-07bd7818-327a-41df-a62f-ad7220499971.png)
 
 ## Notes
-This package only supports MACOS, there are some limitations in other platforms like IOS https://stackoverflow.com/a/6243685/2161256 if anyone wants to play with other platform PRs are welcome.
+
+This package only supports MACOS. There are known limitations in other platforms like IOS https://stackoverflow.com/a/6243685/2161256 - PRs are welcome.
