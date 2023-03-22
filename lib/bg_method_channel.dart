@@ -1,3 +1,4 @@
+import 'package:bg/options.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -10,10 +11,8 @@ class MethodChannelBg extends BgPlatform {
   final methodChannel = const MethodChannel('bg');
 
   @override
-  Future<String?> changeWallpaper({required String url}) async {
-    return await methodChannel
-        .invokeMethod<String>('changeWallpaper', <String, dynamic>{
-      'url': url,
-    });
+  Future<String?> changeWallpaper({required WallpaperOptions options}) async {
+    return await methodChannel.invokeMethod<String>(
+        'changeWallpaper', options.toJson());
   }
 }

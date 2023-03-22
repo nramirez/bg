@@ -1,5 +1,7 @@
+import 'package:bg/options.dart';
 import 'package:flutter/material.dart';
 import 'package:bg/bg.dart';
+import 'package:flex_color_picker/flex_color_picker.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,21 +18,45 @@ class _MyAppState extends State<MyApp> {
   final _bgPlugin = Bg();
   String demoUrl =
       'https://live.staticflickr.com/65535/51106448871_213c324baf_o_d.jpg';
+  WallpaperScale _style = WallpaperScale.stretch;
+  // color
+  var color = Colors.white;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(useMaterial3: true),
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Demo - Paste your image url'),
-        ),
-        body: Center(
-          child: Column(
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(demoUrl),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Flex(
+            direction: Axis.vertical,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
+              ListTile(
+                leading: DropdownButton<WallpaperScale>(
+                  underline: Container(),
+                  value: _style,
+                  onChanged: (value) {
+                    setState(() {
+                      _style = value!;
+                    });
+                  },
+                  items: WallpaperScale.values
+                      .map(
+                        (e) => DropdownMenuItem(
+                          value: e,
+                          child: Text(e.toString().split('.').last),
+                        ),
+                      )
+                      .toList(),
+                ),
+                title: TextFormField(
                   initialValue: demoUrl,
                   onChanged: (value) {
                     setState(() {
@@ -42,28 +68,27 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  onPressed: () async {
-                    await _bgPlugin.changeWallpaper(url: demoUrl);
-                  },
-                  child: const Text('Change wallpaper'),
-                ),
-              ),
-              SingleChildScrollView(
-                child: Image.network(
-                  demoUrl,
-                  loadingBuilder: (context, child, loadingProgress) {
-                    if (loadingProgress == null) return child;
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  },
-                ),
+              ColorPicker(
+                color: color,
+                onColorChanged: (value) {
+                  setState(() {
+                    color = value;
+                  });
+                },
               ),
             ],
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            await _bgPlugin.changeWallpaper(
+                options: WallpaperOptions(
+              url: demoUrl,
+              scale: _style,
+              color: color.hex,
+            ));
+          },
+          child: const Icon(Icons.wallpaper),
         ),
       ),
     );

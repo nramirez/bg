@@ -1,3 +1,4 @@
+import 'package:bg/options.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'bg_method_channel.dart';
@@ -23,9 +24,7 @@ abstract class BgPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> changeWallpaper({
-    required String url,
-  }) {
+  Future<String?> changeWallpaper({required WallpaperOptions options}) {
     throw UnimplementedError('changeWallpaper() has not been implemented.');
   }
 }
