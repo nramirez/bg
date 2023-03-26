@@ -83,8 +83,6 @@ class _HomePageState extends State<HomePage> {
             ColorPicker(
               pickersEnabled: const {
                 ColorPickerType.both: true,
-                // ColorPickerType.primary: true,
-                // ColorPickerType.accent: true,
               },
               color: color,
               onColorChanged: (value) {

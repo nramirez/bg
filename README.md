@@ -1,20 +1,63 @@
-# bg
+# bg - A plugin for changing your wallpaper
 
-Change Wallpapers plugin
+[![pub package](https://img.shields.io/pub/v/bg.svg)](https://pub.dev/packages/bg)
+
+## Platform Support
+
+| MacOS |
+| :---: |
+|   ✔️   |
 
 ## Getting Started
 
-This project is a demo on how to create Flutter Plugins https://www.youtube.com/@AprendiendoconNaz
+You can create your custom widget and call change wallpaper.
+```dart
+// import bg
+import 'package:bg/bg.dart';
 
-Learn more at [plug-in package](https://flutter.dev/developing-packages/).
+// on change
+await Bg().changeWallpaper(
+    url: [your-url],
+    scale: style, // [WallpaperScale]
+    color: color.hex, // defaults to #ffffff
+);
+```
 
-## Platforms
-- MacOS
+You can also use `showWallpaperOptions` which shows a [BottomSheetModal](https://api.flutter.dev/flutter/material/showModalBottomSheet.html).
 
-## Example
+```dart
+await Bg().showWallpaperOptions(
+    url: imageUrl,
+    // BuildContext from parent widget
+    context: context,
+);
+
+```
+
+
+## Bottom Sheet Modal Example
+
+![http://g.recordit.co/A6q4cmhHbJ.gif](http://g.recordit.co/A6q4cmhHbJ.gif)
+
+
+
+## Custom Example
 
 ![Demo](https://user-images.githubusercontent.com/1899538/226887038-07bd7818-327a-41df-a62f-ad7220499971.png)
 
+
+## Docs
+
+- Learn more about plugins: Learn more at [plug-in package](https://flutter.dev/developing-packages/).
+
+- See this vid for a vid demo [Spanish]: https://www.youtube.com/@AprendiendoconNaz
+
 ## Notes
 
-This package only supports MACOS. There are known limitations in other platforms like IOS https://stackoverflow.com/a/6243685/2161256 - PRs are welcome.
+- This package only supports MACOS. There are known limitations in other platforms like IOS https://stackoverflow.com/a/6243685/2161256
+- We don't support tile scale, because not all the images play nicely with this setting, and MacOS itself doesn't always show the option
+
+
+PRs are welcome.
+
+

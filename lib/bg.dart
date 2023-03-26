@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 
 import 'bg_platform_interface.dart';
 
-/// Manage device wallpapers
+/// Update wallpaper from a given url
+/// [url] is the url of the image to use as wallpaper
+/// [scale] is the scale of the wallpaper
+/// [color] is the color to use if the wallpaper is scaled
 class Bg {
   /// Change the wallpaper
   /// [url] is the url of the image to use as wallpaper
@@ -22,9 +25,13 @@ class Bg {
     );
   }
 
-  /// Helper to display wallpaper options
-  Future<void> showWallpaperOptions(
-      {required String url, required BuildContext context}) {
+  /// Handy widget to show a modal with wallpaper options
+  /// [url] is the url of the image to use as wallpaper
+  /// [context] is the context of the widget
+  Future<void> showWallpaperOptions({
+    required String url,
+    required BuildContext context,
+  }) {
     return showModalBottomSheet<void>(
       // remove top padding
       isScrollControlled: true,
