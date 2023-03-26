@@ -11,8 +11,15 @@ class MethodChannelBg extends BgPlatform {
   final methodChannel = const MethodChannel('bg');
 
   @override
-  Future<String?> changeWallpaper({required WallpaperOptions options}) async {
-    return await methodChannel.invokeMethod<String>(
-        'changeWallpaper', options.toJson());
+  Future<String?> changeWallpaper({
+    required String url,
+    required WallpaperScale scale,
+    required String color,
+  }) async {
+    return await methodChannel.invokeMethod<String>('changeWallpaper', {
+      'url': url,
+      'scale': scale.toString().split('.').last,
+      'color': color,
+    });
   }
 }

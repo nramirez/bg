@@ -1,25 +1,3 @@
-/// Define a set of options for changing wallpaper.
-class WallpaperOptions {
-  WallpaperOptions({
-    required this.url,
-    this.scale = WallpaperScale.auto,
-    this.color,
-  });
-  final WallpaperScale scale;
-  final String url;
-
-  /// color
-  final String? color;
-
-  Map<String, String> toJson() {
-    return {
-      'scale': scale.toString().split('.').last,
-      'url': url,
-      'color': color ?? '#ffffff',
-    };
-  }
-}
-
 /// The style to use when setting the wallpaper.
 enum WallpaperScale {
   /// Automatically choose the best style for the wallpaper.

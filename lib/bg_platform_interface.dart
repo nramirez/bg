@@ -24,7 +24,11 @@ abstract class BgPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> changeWallpaper({required WallpaperOptions options}) {
+  Future<String?> changeWallpaper({
+    required String url,
+    required WallpaperScale scale,
+    required String color,
+  }) {
     throw UnimplementedError('changeWallpaper() has not been implemented.');
   }
 }

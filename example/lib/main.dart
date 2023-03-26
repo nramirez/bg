@@ -82,11 +82,10 @@ class _MyAppState extends State<MyApp> {
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
             await _bgPlugin.changeWallpaper(
-                options: WallpaperOptions(
               url: demoUrl,
               scale: _style,
               color: color.hex,
-            ));
+            );
           },
           child: const Icon(Icons.wallpaper),
         ),
