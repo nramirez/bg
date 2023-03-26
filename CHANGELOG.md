@@ -1,5 +1,10 @@
+## 1.0.3
+* No important changes 
+* Update package description
+* Link demo youtube
+
 ## 1.0.2
-* Introduced a new handy method which helps show a bottom modal with wallpaper options
+* Introduce a new handy method which helps show a bottom modal with wallpaper options
 * Removing wallpaper options class because it felt redundant
 * Improve documentation + update example
 

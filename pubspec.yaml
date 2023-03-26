@@ -1,10 +1,10 @@
 name: bg
-description: Change wallpapers.
+description: Easy way to change wallpapers for your MacOS
 maintainer: Naz (@nramirez)
 homepage: https://github.com/nramirez/bg
 repository: https://github.com/nramirez/bg
 issue_tracker: https://github.com/nramirez/bg/issues
-version: 1.0.2
+version: 1.0.3
 
 environment:
   sdk: '>=2.19.4 <3.0.0'
