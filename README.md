@@ -37,6 +37,7 @@ await Bg().showWallpaperOptions(
 
 ## Bottom Sheet Modal Example
 
+- http://g.recordit.co/A6q4cmhHbJ.gif
 ![http://g.recordit.co/A6q4cmhHbJ.gif](http://g.recordit.co/A6q4cmhHbJ.gif)
 
 
@@ -50,7 +51,7 @@ await Bg().showWallpaperOptions(
 
 - Learn more about plugins: Learn more at [plug-in package](https://flutter.dev/developing-packages/).
 
-- See this vid for a vid demo [Spanish]: https://www.youtube.com/@AprendiendoconNaz
+- See this vid for a vid demo [Spanish]: https://youtu.be/i15yUD-ktFQ
 
 ## Notes
 

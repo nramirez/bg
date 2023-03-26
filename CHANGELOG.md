@@ -2,6 +2,7 @@
 * No important changes 
 * Update package description
 * Link demo youtube
+* Update screenshots
 
 ## 1.0.2
 * Introduce a new handy method which helps show a bottom modal with wallpaper options
