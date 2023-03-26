@@ -29,14 +29,6 @@ public class BgPlugin: NSObject, FlutterPlugin {
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
-  public enum Scale {
-		case auto
-		case fill
-		case fit
-		case stretch
-		case center
-	}
-
   // Fill Screen,  Stretch to Fill Screen, Center, Fit to Screen,
   // Center and Fit to Screen receive colors
   public func getOptions(_ call: FlutterMethodCall) -> [NSWorkspace.DesktopImageOptionKey: Any]{
@@ -44,19 +36,26 @@ public class BgPlugin: NSObject, FlutterPlugin {
     var options: [NSWorkspace.DesktopImageOptionKey: Any] = [:]
 
     let scaleString: String = opts["scale"] as! String
-    
+
+    var imageScaling: NSImageScaling = .scaleProportionallyUpOrDown // Default to fit
     if scaleString == "fill" {
-       options[.imageScaling] = NSNumber(value: NSImageScaling.scaleAxesIndependently.rawValue)
+        imageScaling = .scaleAxesIndependently
     } else if scaleString == "fit" {
-        options[.imageScaling] = NSNumber(value:NSImageScaling.scaleProportionallyUpOrDown.rawValue)
+        imageScaling = .scaleProportionallyUpOrDown
     } else if scaleString == "stretch" {
-        options[.imageScaling] = NSNumber(value:NSImageScaling.scaleAxesIndependently.rawValue)
+        imageScaling = .scaleAxesIndependently
     } else if scaleString == "center" {
-        options[.imageScaling] = NSNumber(value:NSImageScaling.scaleNone.rawValue)
+        imageScaling = .scaleNone
     } else {
-      // default to auto
-        options[.imageScaling] = NSNumber(value:NSImageScaling.scaleProportionallyUpOrDown.rawValue)
+        // We don't support tile yet
+        // Not all the images place nicely with this, and MacOS itself not always shows the option
+        // here's a short snippet of what might work
+        // let image = NSImage(named: "background") // Replace with the actual image name
+        // let color = NSColor(patternImage: image!)
+        // view.layer?.backgroundColor = color.cgColor
     }
+
+    options[.imageScaling] = NSNumber(value: imageScaling.rawValue)
 
     let hexString: String = opts["color"] as? String ?? "#000000"
     options[.fillColor] = NSColor(hex: hexString) ?? NSColor.black

@@ -1,8 +1,5 @@
 /// The style to use when setting the wallpaper.
 enum WallpaperScale {
-  /// Automatically choose the best style for the wallpaper.
-  auto,
-
   /// Fill the screen with the wallpaper, cropping as necessary.
   fill,
 
